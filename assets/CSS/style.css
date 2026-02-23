@@ -1,54 +1,280 @@
-body{
+/* ==================================================
+   RESET
+================================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+}
+
+/* ==================================================
+   VARIÁVEIS
+================================================== */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+
+    --bg-light: #f3f4f6;
+    --bg-dark: #111827;
+
+    --surface-light: #ffffff;
+    --surface-dark: #1f2937;
+
+    --border-light: #e5e7eb;
+    --border-dark: #374151;
+
+    --text-light: #111827;
+    --text-dark: #f9fafb;
+}
+
+/* ==================================================
+   HOME
+================================================== */
+.home {
     display: flex;
-    background-color: rgb(221, 221, 228);
-}
-
-h1{
-    font-weight: 700;
-}
-
-thead{
-    background-color: #0375f8;
-}
-
-header{
-    min-width: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto 12px;
-}
-
-#btn-add{
-    font-size: 20px;
-    font-weight: 500;
-    width: 30px;
-    border: none;
-    color: white;
-    background-color: #0375f8;
-    border-radius: 5px;
-}
-
-.btn-edit{
-    border: none;
-    background-color: white;
-}
-
-.btn-delete{
-    border: none;
-    background-color: white;
-}
-
-.container{
-    background-color: white;
-    margin-top: 50px;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    height: 100vh;
+    background: var(--surface-light);
+    color: var(--text-light);
 }
 
+.home-container {
+    text-align: center;
+}
 
-h1{
-    padding: 10px;
+.home-container h1 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+/* Botão entrar */
+.btn-enter {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background .2s;
+}
+
+.btn-enter:hover {
+    background: var(--primary-hover);
+}
+
+/* Botão tema fixo */
+.floating-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+/* ==================================================
+   DASHBOARD
+================================================== */
+.dashboard {
+    background: var(--bg-light);
+    min-height: 100vh;
+}
+
+.container {
+    background: var(--surface-light);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+#btn-back {
+    display: inline-block;
+    margin: 15px;
+}
+
+/* ==================================================
+   TABELA (MODO CLARO)
+================================================== */
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface-light);
+}
+
+.custom-table thead {
+    background: #f8fafc;
+}
+
+.custom-table th {
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.custom-table td {
+    padding: 14px;
+    font-size: 14px;
+    color: var(--text-light);
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* hover tabela */
+.custom-table tbody tr:hover {
+    background: #eff6ff;
+    transition: background .2s;
+}
+
+/* ==================================================
+   BOTÕES DE AÇÃO
+================================================== */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform .2s ease;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    transform: scale(1.2);
+}
+
+/* ==================================================
+   MODAL
+================================================== */
+.modal-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-container.active {
+    display: flex;
+}
+
+.modal-box {
+    background: var(--surface-light);
+    padding: 20px;
+    border-radius: 12px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.modal-box input {
+    padding: 8px;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+}
+
+/* Modal de exclusão */
+.delete-modal .modal-box {
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Botões do modal de exclusão */
+.delete-modal button {
+    min-width: 80px;
+}
+
+/* ==================================================
+   DARK MODE
+================================================== */
+body.dark {
+    background: var(--bg-dark) !important;
+    color: var(--text-dark);
+}
+
+/* container dark */
+body.dark .container {
+    background: var(--surface-dark);
+}
+
+/* tabela dark */
+body.dark .custom-table {
+    background: var(--surface-dark);
+    border: 1px solid var(--border-dark);
+    color: var(--text-dark);
+}
+
+body.dark .custom-table thead {
+    background: #111827;
+}
+
+body.dark .custom-table th {
+    color: #e5e7eb;
+    border-bottom: 1px solid var(--border-dark);
+}
+
+body.dark .custom-table td {
+    color: #f3f4f6;
+    border-bottom: 1px solid #2c3443;
+}
+
+/* hover dark */
+body.dark .custom-table tbody tr:hover {
+    background: #2c3443;
+}
+
+/* dark mode modal */
+body.dark .modal-box {
+    background: var(--surface-dark);
+}
+
+body.dark .modal-box input {
+    background: #111827;
+    color: white;
+    border-color: var(--border-dark);
 }
