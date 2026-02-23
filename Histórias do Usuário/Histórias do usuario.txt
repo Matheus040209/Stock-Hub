@@ -1,0 +1,229 @@
+🟢 1. Adicionar Produto
+
+
+📌 História do Usuário
+
+Como responsável pelo estoque
+Quero adicionar novos produtos com nome, preço, quantidade e código único
+Para manter o controle atualizado dos itens disponíveis.
+
+
+
+
+✅ Critérios de Aceitação
+
+O sistema deve permitir inserir nome, preço e quantidade.
+
+O código deve ser gerado automaticamente no formato STK-XXXXXX.
+
+O código deve ser único.
+
+Todos os campos obrigatórios devem ser validados.
+
+O preço deve ser maior que zero.
+
+A quantidade deve ser maior ou igual a zero.
+
+Após salvar, o produto deve aparecer na tabela.
+
+O sistema deve exibir mensagem de sucesso.
+
+
+
+
+
+
+📋 Requisitos Funcionais
+
+RF01 – O sistema deve permitir cadastrar novos produtos.
+
+RF02 – O sistema deve gerar automaticamente um código único.
+
+RF03 – O sistema deve validar campos obrigatórios.
+
+RF04 – O sistema deve armazenar os dados do produto.
+
+RF05 – O sistema deve atualizar a listagem após o cadastro.
+
+
+
+⚙️ Requisitos Não Funcionais
+
+RNF01 – O sistema deve responder ao cadastro em até 2 segundos.
+
+RNF02 – A interface deve ser intuitiva e de fácil utilização.
+
+RNF03 – O código gerado deve seguir o padrão STK-XXXXXX.
+
+
+
+
+
+🟢 2. Editar Produto
+
+
+
+📌 História do Usuário
+
+Como responsável pelo estoque
+Quero editar produtos existentes
+Para manter as informações atualizadas.
+
+
+
+
+
+✅ Critérios de Aceitação
+
+O sistema deve permitir alterar nome, preço e quantidade.
+
+O código do produto não pode ser alterado.
+
+O sistema deve validar os campos editados.
+
+Após salvar, as alterações devem refletir na tabela.
+
+O sistema deve exibir mensagem de sucesso.
+
+
+
+
+📋 Requisitos Funcionais
+
+RF06 – O sistema deve permitir editar produtos cadastrados.
+
+RF07 – O sistema deve manter o código original do produto.
+
+RF08 – O sistema deve atualizar os dados na listagem.
+
+
+
+⚙️ Requisitos Não Funcionais
+
+RNF04 – A atualização deve ocorrer imediatamente após a edição.
+
+RNF05 – O sistema deve manter a integridade dos dados.
+
+
+
+
+🟢 3. Excluir Produto
+
+
+📌 História do Usuário
+
+Como responsável pelo estoque
+Quero excluir produtos
+Para remover itens que não fazem mais parte do estoque.
+
+
+
+
+✅ Critérios de Aceitação
+
+O sistema deve solicitar confirmação antes de excluir.
+
+O produto deve ser removido apenas após confirmação.
+
+A tabela deve ser atualizada automaticamente.
+
+O sistema deve exibir mensagem de sucesso.
+
+
+
+
+📋 Requisitos Funcionais
+
+RF09 – O sistema deve permitir excluir produtos.
+
+RF10 – O sistema deve solicitar confirmação antes da exclusão.
+
+RF11 – O sistema deve atualizar a listagem após exclusão.
+
+
+⚙️ Requisitos Não Funcionais
+
+RNF06 – A exclusão deve ser processada em até 2 segundos.
+
+RNF07 – O sistema deve evitar exclusão acidental.
+
+
+
+
+🟢 4. Visualizar Produtos
+
+
+📌 História do Usuário
+
+Como responsável pelo estoque
+Quero visualizar os produtos em uma tabela dinâmica
+Para acompanhar rapidamente o estoque.
+
+
+
+
+✅ Critérios de Aceitação
+
+A tabela deve exibir nome, preço, quantidade e código.
+
+A listagem deve atualizar automaticamente após alterações.
+
+A interface deve ser organizada e legível.
+
+
+
+
+📋 Requisitos Funcionais
+
+RF12 – O sistema deve listar todos os produtos cadastrados.
+
+RF13 – O sistema deve atualizar a tabela dinamicamente.
+
+
+
+⚙️ Requisitos Não Funcionais
+
+RNF08 – A tabela deve carregar em até 2 segundos.
+
+RNF09 – A interface deve ser responsiva.
+
+
+
+
+
+🟢 5. Alternar Tema (Claro/Escuro)
+
+
+📌 História do Usuário
+
+Como usuário do sistema
+Quero alternar entre tema claro e escuro
+Para melhorar a experiência visual.
+
+
+
+
+✅ Critérios de Aceitação
+
+O sistema deve permitir alternar entre modo claro e escuro.
+
+A alteração deve ser aplicada imediatamente.
+
+O tema selecionado deve permanecer ativo durante o uso.
+
+
+
+
+📋 Requisitos Funcionais
+
+RF14 – O sistema deve permitir alternar o tema.
+
+RF15 – O sistema deve aplicar o tema escolhido em toda a interface.
+
+
+
+⚙️ Requisitos Não Funcionais
+
+RNF10 – A troca de tema deve ocorrer sem recarregar a página.
+
+RNF11 – O sistema deve manter padrão visual consistente.
