@@ -91,17 +91,59 @@ Stock-Hub/
 - Node.js instalado
 - PostgreSQL instalado e configurado
 
-### Backend
+### 1. Configuração do Banco de Dados
+
+#### Criar o banco de dados:
+
+Abra o PostgreSQL (via pgAdmin ou linha de comando) e execute:
+
+```
+sql
+CREATE DATABASE stockhub;
+```
+
+#### Criar a tabela de produtos:
+
+Execute o script SQL localizado em `backend/database.sql`:
+
+```
+bash
+# Via linha de comando (exemplo)
+psql -U postgres -d stockhub -f backend/database.sql
+```
+
+Ou copie o conteúdo do arquivo e execute no pgAdmin ou no psql.
+
+#### Configurar variáveis de ambiente:
+
+1. Copie o arquivo de exemplo:
+```
+bash
+cp backend/.env.example backend/.env
+```
+
+2. Edite o arquivo `backend/.env` com suas credenciais:
+
+```
+env
+# Banco de Dados PostgreSQL
+DB_USER=postgres        # Seu usuário do PostgreSQL
+DB_HOST=localhost       # Host do banco (ou IP do servidor)
+DB_DATABASE=stockhub    # Nome do banco de dados
+DB_PASSWORD=sua_senha   # Sua senha do PostgreSQL
+DB_PORT=5432           # Porta do PostgreSQL (padrão: 5432)
+```
+
+### 2. Instalar dependências e iniciar o Backend
 
 ```
 bash
 cd backend
 npm install
-# Configure o arquivo .env com suas credenciais do banco de dados
 npm run dev
 ```
 
-### Frontend
+### 3. Frontend
 
 Abra o arquivo `frontend/index.html` no seu navegador ou use um servidor local.
 
