@@ -31,6 +31,31 @@
 
 ## 🚀 Instalação Rápida (5 minutos)
 
+### Como rodar
+
+**Desenvolvimento:**
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+**Produção:**
+```bash
+npm start
+```
+
+**Testes (Jest + ESM):**
+```bash
+cd backend
+npm test
+```
+
+**O que é testado:**
+- Unit: controller, service, repository (100% mocks)
+- API: supertest endpoints
+- Integration: fluxos completos
+
 ### 1️⃣ Pré-requisitos
 ```
 Node.js 18+           [https://nodejs.org]
