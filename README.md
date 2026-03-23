@@ -1,164 +1,153 @@
-<div align="center">
-
 # 📦 Stock Hub
 
-### 📊 Gerenciador de Produtos em Estoque
-
-Stock Hub é uma aplicação web moderna para gerenciar produtos em estoque, permitindo adicionar, editar e excluir itens.
-
+<div align="center">
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge" alt="Status">
+  <img src="https://img.shields.io/badge/Express-5.x-blue?style=for-the-badge&logo=express&logoColor=white" alt="Express">
+  <img src="https://img.shields.io/badge/PostgreSQL-16-green?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Node.js-20+-informational?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
 </div>
 
----
+**Stock Hub** é um sistema completo de gerenciamento de estoque moderno, construído com Clean Architecture e full-stack Node.js.
 
-## 📌 Sobre o Projeto
-
-O **Stock Hub** foi desenvolvido como um projeto de estudo de **CRUD com JavaScript puro**. Ele permite controlar produtos de forma prática e visual, com uma interface limpa, responsiva e interativa.
-
----
-
-## 🛠 Tecnologias Utilizadas
-
-### Front-end
-<p>
-  <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" />
-</p>
-
-### Back-end
-<p>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
-</p>
-
----
+[![Dashboard Preview](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Stock+Hub+Dashboard)](https://github.com/cleverton-god/Stock-Hub)
 
 ## ✨ Funcionalidades
 
-- ✅ Adicionar produtos com **nome, preço, estoque e código único**
-- ✅ Editar produtos existentes
-- ✅ Excluir produtos com confirmação
-- ✅ Tabela dinâmica com listagem de produtos
-- ✅ Modal para adicionar e editar produtos
-- ✅ Tema claro e escuro
-- ✅ Geração automática de código (`STK-XXXXXX`)
+- 📋 **CRUD Completo** de produtos (nome, preço, estoque, código único)
+- 🎨 **Interface Moderna** (Bootstrap 5 + Dark/Light theme) 
+- 🔄 **Auto-reload** em desenvolvimento (Nodemon)
+- ⚡ **API RESTful** (Express 5 + PostgreSQL)
+- 🌐 **Frontend servido pelo Backend** (`localhost:3000`)
+- 📱 **Responsivo** em todos dispositivos
 
----
+## 🛠 Stack Tecnológica
 
-## 📂 Estrutura do Projeto
+| Camada | Tecnologias |
+|--------|-------------|
+| **Backend** | Node.js, Express 5, PostgreSQL, Nodemon |
+| **Frontend** | HTML5, CSS3, Vanilla JS, Bootstrap 5 |
+| **Banco** | PostgreSQL 16+ |
+| **Arquitetura** | **Clean Architecture** (Controller → Service → Repository → DB) |
 
+## 🚀 Instalação Rápida (5 minutos)
+
+### 1️⃣ Pré-requisitos
 ```
-bash
-Stock-Hub/
-│
-├── frontend/                  # Front-end (HTML, CSS, JS)
-│   ├── index.html            # Página inicial
-│   ├── dashboard.html        # Tela de gerenciamento de produtos
-│   ├── assets/
-│   │   ├── CSS/
-│   │   │   └── style.css    # Estilos da aplicação
-│   │   ├── JS/
-│   │   │   ├── dashboard.js # Lógica principal da dashboard
-│   │   │   └── theme.js    # Script de troca de tema
-│   │   └── img/            # Imagens e preview
-│
-├── backend/                   # Back-end (Node.js, Express, PostgreSQL)
-│   ├── src/
-│   │   ├── config/
-│   │   │   ├── database.js # Configuração do banco de dados
-│   │   │   └── env.js      # Variáveis de ambiente
-│   │   ├── controllers/
-│   │   │   └── product.controller.js # Lógica dos produtos
-│   │   ├── routes/
-│   │   │   └── product.routes.js     # Rotas da API
-│   │   ├── app.js       # Configuração do Express
-│   │   └── server.js    # Inicialização do servidor
-│   ├── .env             # Variáveis de ambiente
-│   └── package.json     # Dependências do projeto
-│
-├── Histórias do Usuário/      # Documentação de requisitos
-└── README.md                  # Documentação
+Node.js 18+           [https://nodejs.org]
+PostgreSQL 13+        [https://postgresql.org]
 ```
 
----
+### 2️⃣ Clonar e Configurar Banco
 
-## 🚀 Como Executar
-
-### Pré-requisitos
-
-- Node.js instalado
-- PostgreSQL instalado e configurado
-
-### 1. Configuração do Banco de Dados
-
-#### Criar o banco de dados:
-
-Abra o PostgreSQL (via pgAdmin ou linha de comando) e execute:
-
+```bash
+git clone <repo-url>
+cd Stock-Hub
 ```
-sql
+
+**Criar banco PostgreSQL:**
+```bash
+# pgAdmin ou psql
 CREATE DATABASE stockhub;
 ```
 
-#### Criar a tabela de produtos:
-
-Execute o script SQL localizado em `backend/database.sql`:
-
-```
-bash
-# Via linha de comando (exemplo)
+**Executar schema:**
+```bash
 psql -U postgres -d stockhub -f backend/database.sql
 ```
 
-Ou copie o conteúdo do arquivo e execute no pgAdmin ou no psql.
+### 3️⃣ Configurar Backend (.env)
 
-#### Configurar variáveis de ambiente:
+Crie `backend/.env`:
+```env
+# PostgreSQL
+DB_USER=postgres
+DB_HOST=localhost
+DB_DATABASE=stockhub  
+DB_PASSWORD=your_password
+DB_PORT=5432
 
-1. Copie o arquivo de exemplo:
-```
-bash
-cp backend/.env.example backend/.env
-```
-
-2. Edite o arquivo `backend/.env` com suas credenciais:
-
-```
-env
-# Banco de Dados PostgreSQL
-DB_USER=postgres        # Seu usuário do PostgreSQL
-DB_HOST=localhost       # Host do banco (ou IP do servidor)
-DB_DATABASE=stockhub    # Nome do banco de dados
-DB_PASSWORD=sua_senha   # Sua senha do PostgreSQL
-DB_PORT=5432           # Porta do PostgreSQL (padrão: 5432)
+# Server
+PORT=3000
 ```
 
-### 2. Instalar dependências e iniciar o Backend
+### 4️⃣ Rodar Projeto (1 comando!)
 
-```
-bash
+```bash
 cd backend
 npm install
 npm run dev
 ```
 
-### 3. Frontend
+✅ **http://localhost:3000** → Frontend + API funcionando!
 
-Abra o arquivo `frontend/index.html` no seu navegador ou use um servidor local.
+## 📁 Estrutura Clean Architecture
 
----
+```
+backend/src/
+├── server.js              # Entrypoint
+├── app.js                 # Express + Frontend serving  
+├── routes/                # API Routes
+├── controllers/           # HTTP Handlers  
+├── services/              # Business Logic 
+├── repositories/          # Data Access  
+└── config/                # DB/ENV
+```
 
-## 📡 API Endpoints
+## 🔌 API Reference
 
-| Método | Endpoint          | Descrição              |
-| ------ | ----------------- | ---------------------- |
-| GET    | /api/products     | Lista todos os produtos |
-| POST   | /api/products     | Cria um novo produto   |
-| PUT    | /api/products/:id | Atualiza um produto   |
-| DELETE | /api/products/:id | Exclui um produto     |
+| Endpoint | Método | Descrição | Body |
+|----------|--------|-----------|------|
+| `/api/products` | `GET` | Listar produtos | - |
+| `/api/products` | `POST` | Criar produto | `{name, price, stock, code}` |
+| `/api/products/:id` | `PUT` | Atualizar | `{name, price, stock, code}` |
+| `/api/products/:id` | `DELETE` | Excluir | - |
 
----
+## ⚙️ Scripts NPM
+
+```bash
+npm run dev    # 🚀 Dev server + Hot Reload
+npm start      # 📦 Production
+npm test       # 🧪 Tests (Jest)
+```
+
+## 🐳 Docker (Opcional)
+
+```bash
+docker-compose up -d
+```
+
+## 🔍 Troubleshooting
+
+| Problema | Solução |
+|----------|---------|
+| **Porta ocupada** | `PORT=3001 npm run dev` |
+| **DB conexão** | Verifique `.env` |
+| **CORS erro** | Backend deve estar rodando |
+| **ENOENT frontend** | `npm run dev` no `backend/` |
+
+## 📈 Estrutura DB
+
+```sql
+CREATE TABLE products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL, 
+  stock INTEGER NOT NULL DEFAULT 0,
+  code VARCHAR(20) UNIQUE NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+```
+
+## 🤝 Contribuição
+
+1. Fork o projeto
+2. Crie branch `feat/nova-funcionalidade`
+3. Commit com mensagem clara
+4. Push e abra PR
+
+## 📄 Licença
+
+[MIT](LICENSE) - Use livremente!
 
 ## 👨‍💻 Autores
 
@@ -168,12 +157,8 @@ Abra o arquivo `frontend/index.html` no seu navegador ou use um servidor local.
 | Matheus  spilmam   | [matheus](https://github.com/Matheus040209)    |
 | Cleverton rosa     | [cleverton](https://github.com/cleverton-god)  |
 
----
 
-## 🎯 Objetivo
+<div align="center">
+  <strong>⭐ Star se ajudou você!</strong>
+</div>
 
-Praticar desenvolvimento Front-end e Back-end com **CRUD em JavaScript**, criando uma aplicação funcional, responsiva e próxima de um sistema real de gerenciamento de estoque.
-
----
-
-⭐ Se gostou do projeto, deixe uma estrela no repositório!
