@@ -1,7 +1,13 @@
 export default {
-  testEnvironment: 'node',
-  transformIgnorePatterns: [
-    'node_modules/(?!(pg)/)'
-  ],
-  setupFilesAfterEnv: ['<rootDir>/tests/setup.js']
+  testEnvironment: "node",
+
+  // ESSENCIAL: carregar .env nos testes
+  setupFiles: ["./tests/setup.js"],
+
+  // necessário para ESM funcionar melhor
+  transform: {},
+
+  moduleNameMapper: {
+    "^(\\.{1,2}/.*)\\.js$": "$1"
+  }
 };

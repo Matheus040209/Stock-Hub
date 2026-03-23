@@ -18,11 +18,23 @@ export const updateProduct = async (id, name, price, stock, code) => {
     "UPDATE products SET name = $1, price = $2, stock = $3, code = $4 WHERE id = $5 RETURNING *",
     [name, price, stock, code, id]
   );
+
+  if (result.rows.length === 0) {
+    throw new Error("Produto não encontrado");
+  }
+
   return result.rows[0];
 };
 
 export const deleteProduct = async (id) => {
-  const result = await pool.query("DELETE FROM products WHERE id = $1 RETURNING *", [id]);
+  const result = await pool.query(
+    "DELETE FROM products WHERE id = $1 RETURNING *",
+    [id]
+  );
+
+  if (result.rows.length === 0) {
+    throw new Error("Produto não encontrado");
+  }
+
   return result.rows[0];
 };
-

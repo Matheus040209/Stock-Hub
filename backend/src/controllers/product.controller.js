@@ -31,11 +31,18 @@ export const updateProduct = async (req, res) => {
 
   try {
     const product = await productService.updateProduct(id, name, price, stock, code);
+
+    //  Se não encontrou produto
+    if (!product) {
+      return res.status(404).json({ error: "Produto não encontrado" });
+    }
+
     res.json(product);
   } catch (error) {
-    if (error.message === "Todos os campos são obrigatórios" || error.message === "Produto não encontrado") {
-      return res.status(400 || 404).json({ error: error.message });
+    if (error.message === "Todos os campos são obrigatórios") {
+      return res.status(400).json({ error: error.message });
     }
+
     console.error(error);
     res.status(500).json({ error: "Erro ao atualizar produto" });
   }
@@ -46,13 +53,15 @@ export const deleteProduct = async (req, res) => {
 
   try {
     const result = await productService.deleteProduct(id);
+
+    // 🔥 Se não encontrou produto
+    if (!result) {
+      return res.status(404).json({ error: "Produto não encontrado" });
+    }
+
     res.json(result);
   } catch (error) {
-    if (error.message === "Produto não encontrado") {
-      return res.status(404).json({ error: error.message });
-    }
     console.error(error);
     res.status(500).json({ error: "Erro ao excluir produto" });
   }
 };
-
