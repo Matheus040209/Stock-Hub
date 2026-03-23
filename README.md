@@ -1,189 +1,136 @@
-# 📦 Stock Hub
-
 <div align="center">
-  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge" alt="Status">
-  <img src="https://img.shields.io/badge/Express-5.x-blue?style=for-the-badge&logo=express&logoColor=white" alt="Express">
-  <img src="https://img.shields.io/badge/PostgreSQL-16-green?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/Node.js-20+-informational?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+  <img height="150" src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" />
 </div>
 
-**Stock Hub** é um sistema completo de gerenciamento de estoque moderno, construído com Clean Architecture e full-stack Node.js.
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com/?color=00F7FF&size=35&center=true&vCenter=true&width=1000&lines=Stock+Hub;Gerenciamento+de+Estoque;Clean+Architecture+Node.js+Express+PostgreSQL" />
+</div>
 
-[![Dashboard Preview](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Stock+Hub+Dashboard)](https://github.com/cleverton-god/Stock-Hub)
+---
 
-## ✨ Funcionalidades
+<h3 align="center">💻 Sistema Completo de Estoque</h3>
 
-- 📋 **CRUD Completo** de produtos (nome, preço, estoque, código único)
-- 🎨 **Interface Moderna** (Bootstrap 5 + Dark/Light theme) 
-- 🔄 **Auto-reload** em desenvolvimento (Nodemon)
-- ⚡ **API RESTful** (Express 5 + PostgreSQL)
-- 🌐 **Frontend servido pelo Backend** (`localhost:3000`)
-- 📱 **Responsivo** em todos dispositivos
+<p align="center">
+🚀 Clean Architecture com testes completos <br>
+⚡ API RESTful + Frontend moderno <br>
+🧪 100% testado (Jest + Supertest)
+</p>
 
-## 🛠 Stack Tecnológica
+---
 
-| Camada | Tecnologias |
-|--------|-------------|
-| **Backend** | Node.js, Express 5, PostgreSQL, Nodemon |
-| **Frontend** | HTML5, CSS3, Vanilla JS, Bootstrap 5 |
-| **Banco** | PostgreSQL 16+ |
-| **Arquitetura** | **Clean Architecture** (Controller → Service → Repository → DB) |
+## 🧠 Stack Tecnológica
 
-## 🚀 Instalação Rápida (5 minutos)
+### 🎨 Frontend
+<p align="center">
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+</p>
 
-### Como rodar
+### ⚙️ Backend  
+<p align="center">
+<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"/>
+<img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
+<img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+</p>
 
-**Desenvolvimento:**
+### 🧪 Testes & DevOps
+<p align="center">
+<img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white"/>
+<img src="https://img.shields.io/badge/Supertest-FF6C37?style=for-the-badge&logoColor=white"/>
+<img src="https://img.shields.io/badge/Vitest-FF6B35?style=for-the-badge&logoColor=white"/>
+<img src="https://img.shields.io/badge/Nodemon-76DA20?style=for-the-badge&logo=nodemon&logoColor=black"/>
+</p>
+
+---
+
+## 🚀 Início Rápido
+
 ```bash
-cd backend
+# 1. Clonar e instalar
+git clone https://github.com/cleverton-god/Stock-Hub
+cd Stock-Hub/backend
 npm install
-npm run dev
+
+# 2. Configurar .env (copiar .env.example)
+# 3. Criar DB stockhub + executar database.sql
+
+# 4. Rodar
+npm run dev    # localhost:3000
+npm test       # Testes completos
+npm start      # Produção
 ```
 
-**Produção:**
-```bash
-npm start
-```
-
-**Testes (Jest + ESM):**
-```bash
-cd backend
-npm test
-```
-
-**O que é testado:**
-- Unit: controller, service, repository (100% mocks)
-- API: supertest endpoints
-- Integration: fluxos completos
-
-### 1️⃣ Pré-requisitos
-```
-Node.js 18+           [https://nodejs.org]
-PostgreSQL 13+        [https://postgresql.org]
-```
-
-### 2️⃣ Clonar e Configurar Banco
-
-```bash
-git clone <repo-url>
-cd Stock-Hub
-```
-
-**Criar banco PostgreSQL:**
-```bash
-# pgAdmin ou psql
-CREATE DATABASE stockhub;
-```
-
-**Executar schema:**
-```bash
-psql -U postgres -d stockhub -f backend/database.sql
-```
-
-### 3️⃣ Configurar Backend (.env)
-
-Crie `backend/.env`:
-```env
-# PostgreSQL
-DB_USER=postgres
-DB_HOST=localhost
-DB_DATABASE=stockhub  
-DB_PASSWORD=your_password
-DB_PORT=5432
-
-# Server
-PORT=3000
-```
-
-### 4️⃣ Rodar Projeto (1 comando!)
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
-✅ **http://localhost:3000** → Frontend + API funcionando!
-
-## 📁 Estrutura Clean Architecture
+## 📊 Estrutura Clean Architecture
 
 ```
-backend/src/
-├── server.js              # Entrypoint
-├── app.js                 # Express + Frontend serving  
-├── routes/                # API Routes
-├── controllers/           # HTTP Handlers  
-├── services/              # Business Logic 
-├── repositories/          # Data Access  
-└── config/                # DB/ENV
+server.js → app.js → routes → controller → service → repository → PostgreSQL
+                ↓
+           Frontend (Bootstrap)
 ```
 
-## 🔌 API Reference
+## 🔌 API Endpoints
 
-| Endpoint | Método | Descrição | Body |
-|----------|--------|-----------|------|
-| `/api/products` | `GET` | Listar produtos | - |
-| `/api/products` | `POST` | Criar produto | `{name, price, stock, code}` |
-| `/api/products/:id` | `PUT` | Atualizar | `{name, price, stock, code}` |
-| `/api/products/:id` | `DELETE` | Excluir | - |
+| Endpoint | Método | Status |
+|----------|--------|--------|
+| `/api/products` | `GET` | ✅ |
+| `/api/products` | `POST` | ✅ |
+| `/api/products/:id` | `PUT` | ✅ |
+| `/api/products/:id` | `DELETE` | ✅ |
 
-## ⚙️ Scripts NPM
+## 🧪 Status Testes
 
-```bash
-npm run dev    # 🚀 Dev server + Hot Reload
-npm start      # 📦 Production
-npm test       # 🧪 Tests (Jest)
+```
+✅ Controller (3 testes)
+✅ Service (4 testes)
+✅ Repository (2 testes)
+✅ API (3 testes)
+✅ Integration (2 testes)
+---
+TOTAL: 17 testes passando!
 ```
 
-## 🐳 Docker (Opcional)
-
-```bash
-docker-compose up -d
-```
-
-## 🔍 Troubleshooting
-
-| Problema | Solução |
-|----------|---------|
-| **Porta ocupada** | `PORT=3001 npm run dev` |
-| **DB conexão** | Verifique `.env` |
-| **CORS erro** | Backend deve estar rodando |
-| **ENOENT frontend** | `npm run dev` no `backend/` |
-
-## 📈 Estrutura DB
+## 📈 Estrutura Banco
 
 ```sql
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  price DECIMAL(10,2) NOT NULL, 
-  stock INTEGER NOT NULL DEFAULT 0,
-  code VARCHAR(20) UNIQUE NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW()
+  price DECIMAL(10,2) NOT NULL,
+  stock INTEGER NOT NULL,
+  code VARCHAR(20) UNIQUE NOT NULL
 );
 ```
 
-## 🤝 Contribuição
+---
 
-1. Fork o projeto
-2. Crie branch `feat/nova-funcionalidade`
-3. Commit com mensagem clara
-4. Push e abra PR
+## 📋 Troubleshooting
+
+| ❌ Erro | ✅ Solução |
+|---------|------------|
+| Password DB | Configurar `.env` |
+| Porta ocupada | `PORT=3001` |
+| Tests falham | `npm test -- --detectOpenHandles` |
+
+---
+
+## 🤝 Contribuindo
+
+1. Fork → `git clone`
+2. `npm install`
+3. `git checkout -b feature/nova-funcionalidade`
+4. Commit + PR
 
 ## 📄 Licença
 
-[MIT](LICENSE) - Use livremente!
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
-## 👨‍💻 Autores
+## 👥 Autores
 
-| Nome               | GitHub                                         |
-| ------------------ | ---------------------------------------------- |
-| Flavio Henrique    | [flavio](https://github.com/flaviohfp)         |
-| Matheus  spilmam   | [matheus](https://github.com/Matheus040209)    |
-| Cleverton rosa     | [cleverton](https://github.com/cleverton-god)  |
-
+[Cleverton Rosa](https://github.com/cleverton-god) • [Flavio Henrique](https://github.com/flaviohfp) • [Matheus Spilmam](https://github.com/Matheus040209)
 
 <div align="center">
-  <strong>⭐ Star se ajudou você!</strong>
+  <img src="https://img.shields.io/badge/⭐-Star_this_repo!-blue?style=for-the-badge&logo=github&logoColor=white" />
 </div>
 
